@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Timer extends React.Component {
     constructor(props) {
     super(props)
-     this.state = {count: 200}
+     this.state = {count: 1}
     }
     render() {
         const {count} = this.state
@@ -15,6 +15,11 @@ class Timer extends React.Component {
     }
 
     componentDidMount() {
+        const {startCount} = this.props
+        this.setState({
+            count: startCount
+        })
+
         this.myInterval = setInterval(() => {
             this.setState(prevState => ({
                 count: prevState.count - 1
