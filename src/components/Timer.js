@@ -10,6 +10,7 @@ class Timer extends React.Component {
         return (
             <div> 
                 <h1>Current Count: { count }</h1>
+                <button onClick={this.doIntervalChange}>Click</button>
             </div>
         )
     }
@@ -19,7 +20,10 @@ class Timer extends React.Component {
         this.setState({
             count: startCount
         })
+       this.doIntervalChange()
+    }
 
+    doIntervalChange = () => {
         this.myInterval = setInterval(() => {
             this.setState(prevState => ({
                 count: prevState.count - 1
